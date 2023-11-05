@@ -1,41 +1,41 @@
 public class EX4 {
     public static void main(String[] args) {
-        char[] nome = {'A', 'n', 'a', ' ', 'S', 'a', 'n', 't', 'o', 's', '\n'};
+        int[][] matriz = {
+                {3, 3, 1, 3},
+                {10, 20, 9, 7},
+                {12, 50, 8, 10},
+        };
 
-        StringBuilder nomeCompleto = new StringBuilder();
-        StringBuilder apelido = new StringBuilder();
-        boolean encontrouEspaco = false;
+        int linhas = matriz.length;
+        int colunas = matriz[0].length;
 
-        for (char c : nome) {
-            if (c == ' ') {
-                encontrouEspaco = true;
-            } else if (encontrouEspaco) {
-                nomeCompleto.append(c);
-            } else {
-                apelido.append(c);
+        int numeroMaisRepetido = matriz[0][0];
+        int frequenciaMaisRepetido = 0;
+
+        for (int i = 0; i < linhas; i++) {
+            for (int j = 0; j < colunas; j++) {
+                int numeroAtual = matriz[i][j];
+                int frequenciaAtual = 1;
+
+                // Verifique a frequência do número atual na matriz
+                for (int k = 0; k < linhas; k++) {
+                    for (int l = 0; l < colunas; l++) {
+                        if (k != i || l != j) {
+                            if (matriz[k][l] == numeroAtual) {
+                                frequenciaAtual++;
+                            }
+                        }
+                    }
+                }
+
+                if (frequenciaAtual > frequenciaMaisRepetido) {
+                    frequenciaMaisRepetido = frequenciaAtual;
+                    numeroMaisRepetido = numeroAtual;
+                }
             }
         }
 
-        System.out.println("Nome no formato Apelido, Nome: " + nomeCompleto + ", " + apelido);
-
-        int vogais = 0;
-        for (char c : nome) {
-            char letra = Character.toLowerCase(c);
-            if (letra == 'a' || letra == 'e' || letra == 'i' || letra == 'o' || letra == 'u') {
-                vogais++;
-            }
-        }
-
-        System.out.println("Número de vogais: " + vogais);
-
-        int consoantes = 0;
-        for (char c : nome) {
-            char letra = Character.toLowerCase(c);
-            if (letra >= 'a' && letra <= 'z' && letra != 'a' && letra != 'e' && letra != 'i' && letra != 'o' && letra != 'u') {
-                consoantes++;
-            }
-        }
-
-        System.out.println("Número de consoantes: " + consoantes);
+        System.out.println("Número mais repetido: " + numeroMaisRepetido);
+        System.out.println("Frequência: " + frequenciaMaisRepetido);
     }
 }

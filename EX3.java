@@ -1,27 +1,22 @@
+import java.util.Scanner;
+
 public class EX3 {
     public static void main(String[] args) {
-        int [] lista = {12, 5, -21, 10, -345, 22, 50, -125, 80, -1};
 
-        int numeroMaior = lista[0];
-        int numeroPos = 1;
-        int numeroNeg = 0;
+        System.out.println("Valor a converter: ");
+        Scanner n1 = new Scanner(System.in);
+        float valor = n1.nextFloat();
+        System.out.println("Tipo de moeda(1 = € ou 2 = $): ");
+        Scanner mo = new Scanner(System.in);
+        int moeda = mo.nextInt();
 
-        for (int numero : lista){
-         if (numero > 0) {
-            numeroPos *= numero;
-         }else{
-             numero = numeroNeg++;
-         }
+        int valorMoeda = moeda;
+        double valorUsuario = valor * 1.155;
+
+        if (valorMoeda == 1){
+            System.out.println("Valor final " +valorUsuario + "€");
+        }else{
+            System.out.println("Valor final " +valorUsuario + "$");
         }
-
-        for (int numero :lista){
-            if (numero > numeroMaior){
-                numeroMaior = numero;
-            }
-        }
-
-        System.out.println("A multiplicação dos números positivos é: " + numeroPos);
-        System.out.println("Os números negativos são: " + numeroNeg);
-        System.out.println("O número maior é: " + numeroMaior);
     }
 }
