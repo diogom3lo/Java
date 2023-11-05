@@ -1,28 +1,19 @@
+import java.util.Scanner;
+
 public class EX2 {
     public static void main(String[] args) {
-        int soma = 0;
-        int media = 0;
 
-        int [][] matriz = new int [3][3];
-        matriz [0][0] = 11;
-        matriz [0][1] = 7;
-        matriz [0][2] = 33;
-        matriz [1][0] = -20;
-        matriz [1][1] = -23;
-        matriz [1][2] = 63;
-        matriz [2][0] = -22;
-        matriz [2][1] = 501;
-        matriz [2][2] = 10000;
+        System.out.println("Valor nº1: ");
+        Scanner n1 = new Scanner(System.in);
+        float valor1 = n1.nextFloat();
+        System.out.println("Valor nº2: ");
+        Scanner n2 = new Scanner(System.in);
+        float valor2 = n2.nextFloat();
 
+        float calculoDevisao = valor1 / valor2;
+        float calculoDecimal = valor1 % valor2;
 
-          for (int i = 0; i < matriz.length; i++){
-              for (int j = 0; j < matriz[0].length; j++ ){
-                  soma = soma + matriz [i][j];
-              }
-          }
-
-        System.out.println("Total da soma " + soma);
-        media = soma /= 9;
-        System.out.println("Total da media " + media);
+        System.out.println("Divisão = " + calculoDevisao);
+        System.out.println("Resto da divisão = " + calculoDecimal);
     }
 }
